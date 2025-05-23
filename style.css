@@ -1,0 +1,1532 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a2e; /* Dark background similar to the image */
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a2e; /* Dark background */
+  padding: 10px 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional subtle shadow */
+  position: fixed; /* Makes the navbar stick to its position relative to the viewport */
+  top: 0; /* Positions it at the very top of the viewport */
+  width: 100%; /* Makes it span the full width of the viewport */
+  z-index: 1000; /* Ensures it stays on top of other content (optional, but good practice) */
+  height: 60px; /* Added a fixed height for better mobile menu positioning */
+  box-sizing: border-box; /* Include padding in height calculation */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #8a2be2; /* Purple color */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Hamburger menu styles */
+.menu-toggle {
+  display: none; /* Hide the checkbox */
+}
+
+.hamburger-icon {
+  display: none; /* Hidden by default, shown on mobile */
+  font-size: 32px; /* Increased size for better visibility */
+  color: #ffffff; /* Changed color to white for better contrast */
+  cursor: pointer;
+  z-index: 1001; /* Ensure it's above the navbar-right when open */
+  text-shadow: 0 0 5px rgba(138, 43, 226, 0.5); /* Added subtle shadow */
+}
+
+.navbar-right {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right li {
+  margin-right: 20px; /* Adjust spacing between items */
+}
+
+.navbar-right li:last-child {
+  margin-right: 0; /* No margin for the last item (button) */
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #ffffff; /* White text for links */
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+  color: #8a2be2; /* Purple on hover for links */
+}
+
+.resume-button {
+  background-color: #8a2be2; /* Purple background for button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #6a0dad; /* Darker purple on hover */
+}
+
+/* Media Queries for Navbar Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between; /* Space out logo and hamburger */
+    padding: 10px 20px;
+  }
+
+  .navbar-right {
+    display: flex; /* Always flex to control visibility with opacity/pointer-events */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute;
+    top: 100%; /* Position exactly below the navbar */
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    background-color: #1a1a2e; /* Dark background for dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px 0;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction when hidden */
+    max-height: 0; /* Start with 0 height when hidden */
+    overflow-y: hidden; /* Hide overflow when collapsed */
+  }
+
+  .navbar-right.active {
+    opacity: 1;
+    pointer-events: all; /* Allow interaction when active */
+    max-height: calc(
+      100vh - 60px
+    ); /* Max height to fill remaining viewport, allow scroll */
+    overflow-y: auto; /* Enable scrolling if content is too long */
+  }
+
+  .navbar-right li {
+    margin: 15px 0; /* Adjust vertical spacing for stacked links */
+    text-align: center;
+  }
+
+  .navbar-right li:last-child {
+    margin-top: 20px; /* Space above resume button */
+  }
+
+  .hamburger-icon {
+    display: block; /* Show hamburger icon on mobile */
+  }
+}
+
+/* General Styling for Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Adjusted top padding to account for fixed navbar height */
+  padding: 80px 30px 40px 30px; /* Adjusted to be slightly more than navbar height */
+  background-color: #1a1a2e;
+  color: #fff;
+  min-height: calc(
+    100vh - 120px
+  ); /* Adjust based on navbar height (approx. 60px) + some buffer. */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content-left {
+  flex: 1; /* Takes up available space */
+  max-width: 600px; /* Limit width for better readability */
+  margin-right: 50px; /* Space between text and image */
+}
+
+.greeting {
+  font-size: 18px;
+  color: #a0a0a0; /* Lighter grey for "Hello, I'm" */
+  margin-bottom: 5px;
+}
+
+.name {
+  font-size: 4.5em; /* Large font size for name */
+  margin: 0;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 2.2em;
+  color: #e0e0e0; /* Slightly lighter color for title */
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #cccccc; /* Greyer text for description */
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px; /* Space between buttons */
+  margin-bottom: 40px;
+}
+
+.portfolio-button,
+.contact-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.portfolio-button {
+  background-color: #8a2be2; /* Purple from navbar button */
+  color: white;
+}
+
+.portfolio-button:hover {
+  background-color: #6a0dad; /* Darker purple on hover */
+  transform: translateY(-2px);
+}
+
+.contact-button {
+  background-color: #33334d; /* Darker grey */
+  color: white;
+  border: 1px solid #55556d; /* Subtle border */
+}
+
+.contact-button:hover {
+  background-color: #44446a;
+  transform: translateY(-2px);
+}
+
+.social-icons {
+  display: flex;
+  gap: 25px; /* Space between icons */
+}
+
+.social-icon {
+  font-size: 28px; /* Size of social icons */
+  color: #cccccc; /* Lighter grey for icons */
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #8a2be2; /* Purple on hover */
+}
+
+/* Right Section - Profile Picture */
+.hero-content-right {
+  position: relative; /* For positioning tooltip and placeholder circles */
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 400px; /* Adjust based on your desired image size */
+  height: 400px; /* Adjust based on your desired image size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-circle {
+  width: 350px; /* Size of the outer purple circle */
+  height: 350px;
+  background-color: transparent; /* No background for the circle itself, border will define it */
+  border: 3px solid #8a2be2; /* Purple border */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures image stays within the circle */
+  position: relative; /* For tooltip positioning */
+  z-index: 2; /* Ensures it's above placeholder circles */
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops the image to fit the circle */
+  border-radius: 50%; /* Ensures the image itself is circular */
+}
+
+.experience-tooltip {
+  position: absolute;
+  bottom: 20px; /* Position from bottom of the circle */
+  right: -70px; /* Position from right of the circle, adjust as needed */
+  background-color: #33334d; /* Dark background */
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 3; /* Ensure it's above the image */
+}
+
+/* Placeholder Circles */
+.placeholder-circle {
+  position: absolute;
+  background-color: rgba(128, 0, 128, 0.3); /* Semi-transparent purple */
+  border-radius: 50%;
+  z-index: 1; /* Behind the profile circle */
+}
+
+.circle-1 {
+  width: 80px;
+  height: 80px;
+  top: 50px;
+  left: 0;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Center the circle around the top-left point */
+}
+
+.circle-2 {
+  width: 100px;
+  height: 100px;
+  bottom: 50px;
+  right: 0;
+  transform: translate(
+    50%,
+    50%
+  ); /* Center the circle around the bottom-right point */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .hero-content-left {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .name {
+    font-size: 3.5em;
+  }
+
+  .title {
+    font-size: 1.8em;
+  }
+
+  .hero-content-right {
+    width: 300px;
+    height: 300px;
+  }
+
+  .profile-circle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .experience-tooltip {
+    right: 0;
+    transform: translateX(50%); /* Center tooltip relative to image */
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .placeholder-circle {
+    display: none; /* Hide placeholder circles on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .name {
+    font-size: 2.8em;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .description {
+    font-size: 1em;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .portfolio-button,
+  .contact-button {
+    width: 80%; /* Make buttons wider */
+  }
+}
+/* About Section Styling */
+.about-section {
+  background-color: #1a1a2e; /* Same dark background */
+  color: #fff;
+  padding: 80px 30px; /* Adjust padding as needed */
+  text-align: center; /* Center the title and subtitle */
+}
+
+.about-header {
+  margin-bottom: 60px; /* Space below the header */
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #a0a0a0; /* Lighter grey */
+  margin-bottom: 5px;
+}
+
+.section-title {
+  font-size: 3em; /* Large font size for section titles */
+  margin: 0;
+  color: #ffffff;
+}
+
+.about-content {
+  display: flex;
+  align-items: center; /* Vertically align items */
+  gap: 80px; /* Space between image and text content */
+  max-width: 1200px; /* Max width for the content block */
+  margin: 0 auto; /* Center the content block */
+  text-align: left; /* Reset text alignment for the content */
+}
+
+.about-image-container {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 450px; /* Adjust fixed width */
+  height: 550px; /* Adjust fixed height */
+  overflow: hidden; /* Hide anything outside the container */
+  border-radius: 10px; /* Slightly rounded corners for the container */
+  position: relative;
+  /* Optional: Add a border similar to the image */
+  border: 3px solid #8a2be2; /* Purple border */
+  display: flex; /* To center the image inside */
+  justify-content: center;
+  align-items: center;
+}
+
+.about-picture {
+  width: 100%; /* Make image fill container */
+  height: 100%; /* Make image fill container */
+  object-fit: cover; /* Crop image to fit container without distortion */
+  border-radius: 8px; /* Slightly smaller border-radius than container */
+}
+
+.about-text-content {
+  flex: 1; /* Takes up remaining space */
+}
+
+.about-description {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 40px;
+}
+
+.about-details {
+  display: flex;
+  gap: 30px; /* Space between detail cards */
+  margin-bottom: 40px;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.detail-card {
+  background-color: #2a2a3e; /* Slightly lighter dark background for cards */
+  padding: 25px;
+  border-radius: 10px;
+  flex: 1; /* Allows cards to grow and shrink */
+  min-width: 280px; /* Minimum width for cards before wrapping */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.detail-card h3 {
+  font-size: 1.4em;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.detail-card p {
+  font-size: 1em;
+  color: #a0a0a0;
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+.experience-button {
+  background-color: #8a2be2; /* Purple from previous buttons */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.experience-button:hover {
+  background-color: #6a0dad; /* Darker purple on hover */
+  transform: translateY(-2px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column; /* Stack image and text vertically */
+    gap: 50px;
+    text-align: center; /* Center text content when stacked */
+  }
+
+  .about-image-container {
+    width: 80%; /* Make image container take more width */
+    height: auto; /* Adjust height automatically */
+    max-width: 400px; /* Limit max width on smaller screens */
+  }
+
+  .about-details {
+    justify-content: center; /* Center detail cards when wrapped */
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.5em;
+  }
+
+  .about-description {
+    font-size: 1em;
+  }
+
+  .detail-card {
+    min-width: unset; /* Remove min-width to allow cards to shrink more */
+    width: 100%; /* Make cards take full width */
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 2em;
+  }
+
+  .about-section {
+    padding: 60px 15px;
+  }
+}
+/* Education Section Styling */
+.education-section {
+  background-color: #1a1a2e; /* Dark background */
+  color: #fff;
+  padding: 80px 30px; /* Consistent padding */
+  text-align: center; /* Center the title */
+}
+
+.education-header {
+  margin-bottom: 60px; /* Space below the header */
+}
+
+/* Reusing section-title for consistency */
+.education-section .section-title {
+  font-size: 3em; /* Large font size for section titles */
+  margin: 0;
+  color: #8a2be2; /* Purple color for the title, as in the reference image */
+}
+
+.education-grid {
+  display: flex;
+  flex-direction: column; /* Stack cards vertically */
+  gap: 30px; /* Space between education cards */
+  max-width: 900px; /* Max width for the education grid */
+  margin: 0 auto; /* Center the grid */
+}
+
+.education-card {
+  background-color: #2a2a3e; /* Slightly lighter dark background for cards, consistent with about section */
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the start vertically */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-left {
+  text-align: left; /* Align text on the left within the card */
+  flex: 1; /* Allow left content to take available space */
+  margin-right: 20px; /* Space between left and right content */
+}
+
+.degree-title {
+  font-size: 1.5em;
+  color: #ffffff; /* White color for the main degree title */
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.institution {
+  font-size: 1.1em;
+  color: #cccccc; /* Lighter grey for institution name */
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card-right {
+  text-align: right; /* Align text on the right within the card */
+  display: flex;
+  flex-direction: column; /* Stack dates and CGPA vertically */
+  align-items: flex-end; /* Align items to the right */
+}
+
+.dates {
+  font-size: 1.1em;
+  color: #8a2be2; /* Purple color for dates, matching reference */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cgpa {
+  font-size: 1.1em;
+  color: #cccccc; /* Lighter grey for CGPA */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .education-section {
+    padding: 60px 20px;
+  }
+
+  .education-section .section-title {
+    font-size: 2.5em;
+  }
+
+  .education-card {
+    flex-direction: column; /* Stack left and right content vertically */
+    align-items: center; /* Center content when stacked */
+    padding: 25px;
+  }
+
+  .card-left,
+  .card-right {
+    text-align: center; /* Center text when stacked */
+    margin-right: 0;
+    width: 100%; /* Take full width */
+  }
+
+  .card-left {
+    margin-bottom: 15px; /* Space between left and right when stacked */
+  }
+
+  .degree-title {
+    font-size: 1.3em;
+  }
+
+  .institution {
+    font-size: 1em;
+  }
+
+  .dates,
+  .cgpa {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section .section-title {
+    font-size: 2em;
+  }
+
+  .education-card {
+    padding: 20px;
+  }
+}
+/* Work Experience Section Styling */
+.experience-section {
+  background-color: #1a1a2e; /* Dark background */
+  color: #fff;
+  padding: 80px 30px; /* Consistent padding */
+  text-align: center; /* Center the header */
+}
+
+.experience-header {
+  margin-bottom: 60px; /* Space below the header */
+}
+
+/* Reusing section-subtitle and section-title for consistency */
+.experience-section .section-subtitle {
+  font-size: 18px;
+  color: #a0a0a0; /* Lighter grey */
+  margin-bottom: 5px;
+}
+
+.experience-section .section-title {
+  font-size: 3em; /* Large font size for section titles */
+  margin: 0;
+  color: #ffffff; /* White color for the title, as in the reference image */
+}
+
+.experience-grid {
+  display: flex;
+  justify-content: center; /* Center cards horizontally */
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+  gap: 30px; /* Space between experience cards */
+  max-width: 1200px; /* Max width for the grid */
+  margin: 0 auto; /* Center the grid */
+}
+
+.experience-card {
+  background-color: #2a2a3e; /* Slightly lighter dark background for cards */
+  padding: 35px;
+  border-radius: 10px;
+  flex: 1; /* Allow cards to grow and shrink */
+  min-width: 350px; /* Minimum width before wrapping */
+  max-width: 550px; /* Maximum width to prevent them from becoming too wide */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left; /* Align text within the card to the left */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.role-title {
+  font-size: 1.8em;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.company {
+  font-size: 1.2em;
+  color: #8a2be2; /* Purple color for company name */
+  margin-bottom: 15px;
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+  font-size: 0.95em;
+  color: #cccccc; /* Lighter grey for dates and location */
+  margin-bottom: 25px;
+}
+
+.location-info .icon {
+  font-size: 1.1em; /* Adjust icon size */
+  margin-right: 8px; /* Space after icon */
+  color: #a0a0a0; /* Slightly lighter grey for icons */
+}
+
+.location-info .dates {
+  margin-right: 15px; /* Space between dates and location icon */
+}
+
+.responsibilities {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+  color: #cccccc;
+}
+
+.responsibilities li {
+  margin-bottom: 10px;
+  padding-left: 20px; /* Space for custom bullet */
+  position: relative;
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+.responsibilities li::before {
+  content: '\2022'; /* Unicode for a solid bullet point */
+  color: #8a2be2; /* Purple bullet */
+  font-size: 1.2em;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+  .experience-grid {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center; /* Center stacked cards */
+  }
+
+  .experience-card {
+    width: 90%; /* Make cards take more width */
+    max-width: 500px; /* Limit max width */
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 60px 20px;
+  }
+
+  .experience-section .section-title {
+    font-size: 2.5em;
+  }
+
+  .role-title {
+    font-size: 1.6em;
+  }
+
+  .company {
+    font-size: 1.1em;
+  }
+
+  .responsibilities li {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-section .section-title {
+    font-size: 2em;
+  }
+
+  .experience-card {
+    padding: 15px;
+    min-width: unset; /* Remove min-width to allow more flexibility */
+    width: 90%; /* Take full width on very small screens */
+  }
+}
+/* My Skills Section Styling */
+.skills-section {
+  background-color: #1a1a2e; /* Dark background */
+  color: #fff;
+  padding: 80px 30px; /* Consistent padding */
+  text-align: center; /* Center the header */
+}
+
+.skills-header {
+  margin-bottom: 60px; /* Space below the header */
+}
+
+/* Reusing section-subtitle and section-title for consistency */
+.skills-section .section-subtitle {
+  font-size: 18px;
+  color: #a0a0a0; /* Lighter grey */
+  margin-bottom: 5px;
+}
+
+.skills-section .section-title {
+  font-size: 3em; /* Large font size for section titles */
+  margin: 0;
+  color: #ffffff; /* White color for the title */
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Responsive grid columns */
+  gap: 30px; /* Space between skill category cards */
+  max-width: 1200px; /* Max width for the grid */
+  margin: 0 auto; /* Center the grid */
+  padding-top: 20px; /* Little extra space below header to the first row of cards */
+}
+
+.skill-category-card {
+  background-color: #2a2a3e; /* Slightly lighter dark background for cards */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left; /* Align content within the card to the left */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.category-title {
+  font-size: 1.5em;
+  color: #8a2be2; /* Purple color for category titles */
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow skill tags to wrap to the next line */
+  gap: 12px; /* Space between individual skill tags */
+}
+
+.skill-tag {
+  background-color: #33334d; /* Darker grey background for tags */
+  color: #cccccc; /* Lighter grey text for tags */
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 0.95em;
+  white-space: nowrap; /* Prevent text wrapping within a tag */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid #44446a; /* Subtle border for definition */
+}
+
+.skill-tag:hover {
+  background-color: #8a2be2; /* Purple background on hover */
+  color: white; /* White text on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+  .skills-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    ); /* Adjust min-width for fewer columns */
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 60px 20px;
+  }
+
+  .skills-section .section-title {
+    font-size: 2.5em;
+  }
+
+  .skill-category-card {
+    padding: 25px;
+  }
+
+  .category-title {
+    font-size: 1.3em;
+  }
+
+  .skill-tag {
+    padding: 7px 12px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section .section-title {
+    font-size: 2em;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr; /* Single column layout on very small screens */
+    gap: 20px;
+  }
+
+  .skill-category-card {
+    padding: 20px;
+  }
+}
+/* Projects Section Styling */
+.projects-section {
+  background-color: #1a1a2e; /* Dark background */
+  color: #fff;
+  padding: 80px 30px; /* Consistent padding */
+  text-align: center; /* Center the header */
+}
+
+.projects-header {
+  margin-bottom: 60px; /* Space below the header */
+}
+
+/* Reusing section-subtitle and section-title for consistency */
+.projects-section .section-subtitle {
+  font-size: 18px;
+  color: #a0a0a0; /* Lighter grey */
+  margin-bottom: 5px;
+}
+
+.projects-section .section-title {
+  font-size: 3em; /* Large font size for section titles */
+  margin: 0;
+  color: #ffffff; /* White color for the title */
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(350px, 1fr)
+  ); /* Responsive grid columns */
+  gap: 30px; /* Space between project cards */
+  max-width: 1300px; /* Wider max width for projects grid */
+  margin: 0 auto; /* Center the grid */
+  padding-top: 20px;
+}
+
+.project-card {
+  background-color: #2a2a3e; /* Slightly lighter dark background for cards */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Ensures image corners are rounded */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 220px; /* Fixed height for project image */
+  overflow: hidden;
+  position: relative;
+  background-color: #333; /* Placeholder background if image isn't loaded */
+}
+
+.project-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops image to fit */
+  display: block; /* Remove extra space below image */
+}
+
+.project-version {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgba(
+    42,
+    42,
+    62,
+    0.8
+  ); /* Slightly transparent dark background */
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  z-index: 1; /* Ensure it's above the image */
+}
+
+.project-content {
+  padding: 25px;
+  text-align: left; /* Align text content within the card */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allow content to grow to fill space if one card is taller */
+}
+
+.project-title {
+  font-size: 1.6em;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 1em;
+  color: #cccccc;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1; /* Allow description to grow to push tags down */
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Smaller gap for project tags */
+  margin-top: auto; /* Push tags to the bottom of the card content */
+  margin-bottom: 15px; /* Space below tags if there's a button */
+}
+
+.tech-tag {
+  background-color: #33334d; /* Consistent with skill tags */
+  color: #cccccc;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.85em;
+  white-space: nowrap;
+  border: 1px solid #44446a; /* Subtle border */
+}
+
+.project-code-button {
+  display: inline-block; /* Make it behave like a block for padding */
+  background-color: #8a2be2; /* Purple button */
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-start; /* Align button to the left */
+}
+
+.project-code-button:hover {
+  background-color: #6a0dad; /* Darker purple on hover */
+  transform: translateY(-2px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(320px, 1fr)
+    ); /* Adjust min-width for slightly smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+    max-width: 500px; /* Limit width of stacked cards */
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 60px 20px;
+  }
+
+  .projects-section .section-title {
+    font-size: 2.5em;
+  }
+
+  .project-card {
+    margin: 0 auto; /* Center individual cards when stacked */
+  }
+
+  .project-content {
+    padding: 20px;
+  }
+
+  .project-title {
+    font-size: 1.4em;
+  }
+
+  .project-description {
+    font-size: 0.95em;
+  }
+
+  .tech-tag {
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section .section-title {
+    font-size: 2em;
+  }
+
+  .project-image-wrapper {
+    height: 180px; /* Smaller image height on very small screens */
+  }
+}
+/* Contact Section Styling */
+.contact-section {
+  background-color: #1a1a2e; /* Dark background */
+  color: #fff;
+  padding: 80px 30px; /* Consistent padding */
+  text-align: center; /* Center the header */
+}
+
+.contact-header {
+  margin-bottom: 60px; /* Space below the header */
+}
+
+/* Reusing section-subtitle and section-title for consistency */
+.contact-section .section-subtitle {
+  font-size: 18px;
+  color: #a0a0a0; /* Lighter grey */
+  margin-bottom: 5px;
+}
+
+.contact-section .section-title {
+  font-size: 3em; /* Large font size for section titles */
+  margin: 0;
+  color: #ffffff; /* White color for the title */
+}
+
+.contact-content-grid {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  gap: 50px; /* Space between left and right columns */
+  max-width: 1200px; /* Max width for the entire content block */
+  margin: 0 auto; /* Center the content block */
+  text-align: left; /* Reset text alignment for content inside */
+}
+
+.contact-left {
+  flex: 1; /* Allows left side to take available space */
+  max-width: 500px; /* Limit width for readability */
+}
+
+.contact-left h3 {
+  font-size: 2em;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.contact-left p {
+  font-size: 1.1em;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for contact cards */
+  gap: 20px; /* Space between contact detail cards */
+}
+
+.contact-detail-card {
+  background-color: #2a2a3e; /* Consistent with other card backgrounds */
+  padding: 25px;
+  border-radius: 10px;
+  text-decoration: none; /* Remove underline from links */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.contact-detail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: #33334d; /* Slightly darker on hover */
+}
+
+.contact-icon {
+  font-size: 2.5em;
+  color: #8a2be2; /* Purple icon color */
+  margin-bottom: 15px;
+}
+
+.contact-detail-card h4 {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.contact-detail-card p {
+  font-size: 0.95em;
+  color: #cccccc;
+  margin: 0;
+}
+
+.contact-right {
+  flex: 1; /* Allows right side to take available space */
+  max-width: 600px; /* Limit width for the form */
+}
+
+.contact-form {
+  background-color: #2a2a3e; /* Consistent with other card backgrounds */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block; /* Make label appear above input */
+  font-size: 1.1em;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #44446a; /* Subtle border for input fields */
+  border-radius: 5px;
+  background-color: #33334d; /* Darker background for input fields */
+  color: #ffffff;
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #8a2be2; /* Purple border on focus */
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3); /* Subtle purple glow on focus */
+}
+
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing of textarea */
+  min-height: 120px; /* Minimum height for textarea */
+}
+
+.send-message-button {
+  background-color: #8a2be2; /* Purple button */
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%; /* Make button full width */
+  margin-top: 15px; /* Space above button */
+}
+
+.send-message-button:hover {
+  background-color: #6a0dad; /* Darker purple on hover */
+  transform: translateY(-2px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+  .contact-content-grid {
+    flex-direction: column; /* Stack left and right columns vertically */
+    gap: 40px;
+    align-items: center; /* Center the stacked content */
+  }
+
+  .contact-left,
+  .contact-right {
+    max-width: 600px; /* Adjust max width for stacked columns */
+    width: 100%; /* Take full width within max-width */
+    text-align: center; /* Center text in left column when stacked */
+  }
+
+  .contact-left h3 {
+    text-align: center;
+  }
+
+  .contact-left p {
+    text-align: center;
+  }
+
+  .contact-cards-grid {
+    grid-template-columns: 1fr; /* Stack contact cards vertically */
+    max-width: 400px; /* Limit width of stacked contact cards */
+    margin: 0 auto; /* Center them */
+  }
+
+  .contact-detail-card {
+    padding: 20px;
+  }
+
+  .contact-form {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 20px;
+  }
+
+  .contact-section .section-title {
+    font-size: 2.5em;
+  }
+
+  .contact-left h3 {
+    font-size: 1.8em;
+  }
+
+  .contact-left p {
+    font-size: 1em;
+  }
+
+  .contact-icon {
+    font-size: 2em;
+  }
+
+  .form-group label {
+    font-size: 1em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section .section-title {
+    font-size: 2em;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+}
+/* Footer Styling */
+.footer {
+  background-color: #1a1a2e; /* Dark background, consistent with other sections */
+  color: #fff;
+  padding: 40px 30px; /* Adjust padding as needed */
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+}
+
+.footer-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.footer-brand .logo-circle {
+  width: 35px; /* Slightly smaller logo in footer */
+  height: 35px;
+  background-color: #8a2be2; /* Purple color */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
+}
+
+.footer-brand .brand-name {
+  font-size: 1.5em; /* Slightly smaller font for name in footer */
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between social icons */
+  margin-bottom: 30px;
+}
+
+.footer-social-icon {
+  font-size: 24px; /* Size of social icons */
+  color: #cccccc; /* Lighter grey for icons */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-social-icon:hover {
+  color: #8a2be2; /* Purple on hover */
+  transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+.footer-nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+  gap: 25px; /* Space between navigation links */
+  margin-bottom: 30px;
+}
+
+.footer-nav-links li a {
+  text-decoration: none;
+  color: #cccccc; /* Lighter grey for links */
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-links li a:hover {
+  color: #8a2be2; /* Purple on hover for links */
+}
+
+.footer-copyright {
+  font-size: 0.9em;
+  color: #a0a0a0; /* Greyer text for copyright */
+  margin-top: 20px;
+}
+
+/* Media Queries for Footer Responsiveness */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-brand .logo-circle {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .footer-brand .brand-name {
+    font-size: 1.3em;
+  }
+
+  .footer-social-icons {
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .footer-social-icon {
+    font-size: 20px;
+  }
+
+  .footer-nav-links {
+    flex-direction: column; /* Stack navigation links vertically */
+    gap: 10px; /* Smaller gap when stacked */
+    margin-bottom: 25px;
+  }
+
+  .footer-nav-links li a {
+    font-size: 0.9em;
+  }
+
+  .footer-copyright {
+    font-size: 0.8em;
+  }
+}

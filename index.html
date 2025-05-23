@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanusha</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="logo-circle">T</div>
+        <span class="brand-name">Thanusha</span>
+      </div>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="hamburger-icon">
+        <i class="fas fa-bars"></i>
+      </label>
+
+      <ul class="navbar-right">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#edu">Education</a></li>
+        <li><a href="#internships">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#pro">Projects</a></li>
+        <li><a href="#con">Contact</a></li>
+        <!-- <li>
+          <a href="#"><button class="resume-button">Resume</button></a>
+        </li> -->
+      </ul>
+    </nav>
+
+    <main class="hero-section" id="home">
+      <div class="hero-content-left">
+        <p class="greeting">Hello, I'm</p>
+        <h1 class="name">Thanusha</h1>
+        <h2 class="title">Full Stack Developer</h2>
+        <div class="cta-buttons">
+          <a href="#pro"
+            ><button class="portfolio-button">View Portfolio</button></a
+          >
+          <a href="#con"
+            ><button class="contact-button" id="contacts">Contact Me</button></a
+          >
+        </div>
+        <div class="social-icons">
+          <a
+            href="https://www.linkedin.com/in/thanusha-kudumula-0108b2236/"
+            class="social-icon"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/ThanushaKudumula/" class="social-icon"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a href="mailto:tthanusha449@gmail.com" class="social-icon"
+            ><i class="fa-solid fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+      <div class="hero-content-right">
+        <div class="profile-circle">
+          <img
+            src="images/PassPhoto1.jpg"
+            alt="Thanusha"
+            class="profile-picture"
+          />
+        </div>
+        <div class="placeholder-circle circle-1"></div>
+        <div class="placeholder-circle circle-2"></div>
+      </div>
+    </main>
+
+    <section class="about-section" id="about">
+      <div class="about-header">
+        <p class="section-subtitle">Get To Know</p>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-content">
+        <div class="profile-circle">
+          <img
+            src="images/PassPhoto1.jpg"
+            alt="Thanusha"
+            class="profile-picture"
+          />
+        </div>
+        <div class="about-text-content">
+          <p class="about-description">
+            I’m Thanusha Kudumula, a focused and motivated individual with a
+            strong belief in continuous learning and self-improvement. I thrive
+            in structured environments where I can contribute meaningfully, work
+            collaboratively, and align my efforts with clear goals. I approach
+            every challenge with patience, dedication, and a growth mindset.
+          </p>
+
+          <a href="#internships"
+            ><button class="experience-button">My Experience</button></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="education-section" id="edu">
+      <div class="education-header">
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="education-grid">
+        <div class="education-card">
+          <div class="card-left">
+            <h3 class="degree-title">
+              B.Tech (Computer Science and Engineering)
+            </h3>
+            <p class="institution">
+              Srinivasa Ramanujan Institute of Technology
+            </p>
+          </div>
+          <div class="card-right">
+            <span class="dates">August 2020 – April 2024</span>
+            <span class="cgpa">CGPA – 8.38/10.0</span>
+          </div>
+        </div>
+
+        <div class="education-card">
+          <div class="card-left">
+            <h3 class="degree-title">Intermediate (MPC)</h3>
+            <p class="institution">Sri Chaitanya Jr. College</p>
+          </div>
+          <div class="card-right">
+            <span class="dates">July 2018 – May 2020</span>
+            <span class="cgpa">CGPA – 9.75/10.0</span>
+          </div>
+        </div>
+
+        <div class="education-card">
+          <div class="card-left">
+            <h3 class="degree-title">SSC</h3>
+            <p class="institution">SFS English Medium School</p>
+          </div>
+          <div class="card-right">
+            <span class="dates">July 2017 – May 2018</span>
+            <span class="cgpa">CGPA – 9.7/10.0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience-section" id="internships">
+      <div class="experience-header">
+        <p class="section-subtitle">My Journey</p>
+        <h2 class="section-title">Internships</h2>
+      </div>
+      <div class="experience-grid">
+        <div class="experience-card">
+          <h3 class="role-title">Backend Developer</h3>
+          <p class="company">Syntec systems</p>
+          <div class="location-info">
+            <span class="icon">&#128197;</span>
+            <span class="dates">06/2024 – 08/2024</span>
+            <span class="icon">&#128205;</span>
+            <span class="location">Anantapur, Andhra Pradesh</span>
+          </div>
+          <ul class="responsibilities">
+            <li>
+              Developed RESTful APIs using Node.js and Express.js, with
+              integration of MongoDB and PostgreSQL for backend services.
+            </li>
+            <li>
+              Implemented JWT authentication, authorization, and followed best
+              practices for security and error handling.
+            </li>
+            <li>
+              Gained hands-on experience in SDLC, clean code practices, and team
+              collaboration using Git and code reviews.
+            </li>
+          </ul>
+        </div>
+
+        <div class="experience-card">
+          <h3 class="role-title">AWS Cloud Foundations</h3>
+          <p class="company">AWS Academy</p>
+          <div class="location-info">
+            <span class="icon">&#128197;</span>
+            <span class="dates">03/2023 – 4/2023</span>
+            <span class="icon">&#128205;</span>
+            <span class="location">Online</span>
+          </div>
+          <ul class="responsibilities">
+            <li>
+              Learned the basics of AWS services such as EC2, S3, RDS, VPC, and
+              IAM.
+            </li>
+            <li>
+              Gained a foundational understanding of cloud computing, pricing
+              models, and security best practices.
+            </li>
+            <li>
+              Explored how to build simple, scalable, and secure applications
+              using AWS tools.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+      <div class="skills-header">
+        <p class="section-subtitle">What I Know</p>
+        <h2 class="section-title">My Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category-card">
+          <h3 class="category-title">Programming Languages</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Core Java</span>
+            <span class="skill-tag">Python</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <h3 class="category-title">Web Technologies</h3>
+          <div class="skills-list">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">Restful API design</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <h3 class="category-title">Databases</h3>
+          <div class="skills-list">
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <h3 class="category-title">Development Tools</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">Visual Studio Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section" id="pro">
+      <div class="projects-header">
+        <p class="section-subtitle">My Recent Work</p>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image-wrapper">
+            <img
+              src="images/project1.png"
+              alt="Job Portal Screenshot"
+              class="project-thumbnail"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Job Portal</h3>
+            <p class="project-description">
+              Developed a full-stack job application management system using the
+              MERN stack. This application enables users to efficiently track
+              job applications, manage interview statuses, and visualize
+              progress.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Mongoose</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image-wrapper">
+            <img
+              src="images/mw.jpg"
+              alt="Mobile App Controlled WheelChair Screenshot"
+              class="project-thumbnail"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Mobile App Controlled WheelChair</h3>
+            <p class="project-description">
+              The project includes voice commands and button-based controls via
+              Bluetooth module, with aim of delivering user friendly and
+              accessible mobility solution.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">IOT</span>
+              <span class="tech-tag">C</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image-wrapper">
+            <img
+              src="images/project3.png"
+              alt="ATM Simulation Screenshot"
+              class="project-thumbnail"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">ATM Simulation</h3>
+            <p class="project-description">
+              The ATM Simulation is a Java console application allowing users to
+              create accounts, log in, and manage deposits, withdrawals, and
+              balance checks.
+            </p>
+            <div class="project-tags">
+              <span class="tech-tag">OOP Principles</span>
+              <span class="tech-tag">Exception Handling</span>
+              <span class="tech-tag">File I/O</span>
+              <span class="tech-tag">Serialization</span>
+              <span class="tech-tag">Collections</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="con">
+      <div class="contact-header">
+        <p class="section-subtitle">Get In Touch</p>
+        <h2 class="section-title">Contact Me</h2>
+      </div>
+      <div class="contact-content-grid">
+        <div class="contact-left">
+          <h3>Let's Discuss Your Project</h3>
+          <p>
+            I'd love to hear about your project and how I can help. Feel free to
+            reach out through any of the following contact methods or by using
+            the form.
+          </p>
+          <div class="contact-cards-grid">
+            <a href="mailto:tthanusha449@gmail.com" class="contact-detail-card">
+              <span class="contact-icon">&#9993;</span>
+              <h4>Email</h4>
+              <p>tthanusha449@gmail.com</p>
+            </a>
+            <a href="tel:+918919961628" class="contact-detail-card">
+              <span class="contact-icon">&#9742;</span>
+              <h4>Phone</h4>
+              <p>+91 8919961628</p>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/thanusha-kudumula-0108b2236/"
+              target="_blank"
+              class="contact-detail-card"
+            >
+              <span class="contact-icon fab fa-linkedin"></span>
+              <h4>LinkedIn</h4>
+              <p>Thanusha Kudumula</p>
+            </a>
+            <a
+              href="https://github.com/ThanushaKudumula/"
+              target="_blank"
+              class="contact-detail-card"
+            >
+              <span class="contact-icon fab fa-github"></span>
+              <h4>GitHub</h4>
+              <p>Thanusha</p>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your mail"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Tell me about your project..."
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="send-message-button">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <div class="logo-circle">T</div>
+        <span class="brand-name">Thanusha Kudumula</span>
+      </div>
+      <div class="footer-social-icons">
+        <a href="https://github.com/ThanushaKudumula" class="footer-social-icon"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/thanusha-kudumula-0108b2236/"
+          class="footer-social-icon"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a href="mailto:tthanusha449@gmail.com" class="footer-social-icon"
+          ><i class="fas fa-envelope"></i
+        ></a>
+      </div>
+      <ul class="footer-nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#internships">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#pro">Projects</a></li>
+        <li><a href="#con">Contact</a></li>
+      </ul>
+      <p class="footer-copyright">
+        &copy; 2024 Thanusha Kudumula. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbarRight = document.querySelector('.navbar-right');
+        const hamburgerIcon = document.querySelector('.hamburger-icon i');
+
+        // Function to close the menu
+        const closeMenu = () => {
+          menuToggle.checked = false; // Uncheck the checkbox
+          navbarRight.classList.remove('active'); // Remove active class
+          hamburgerIcon.classList.remove('fa-times'); // Change icon back to bars
+          hamburgerIcon.classList.add('fa-bars');
+        };
+
+        // Toggle menu visibility and icon on checkbox change
+        menuToggle.addEventListener('change', () => {
+          if (menuToggle.checked) {
+            navbarRight.classList.add('active'); // Show menu
+            hamburgerIcon.classList.remove('fa-bars'); // Change icon to 'X'
+            hamburgerIcon.classList.add('fa-times');
+          } else {
+            closeMenu(); // Hide menu
+          }
+        });
+
+        // Close menu when a navigation link is clicked
+        navbarRight.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu when clicking outside of it (optional, but good UX)
+        document.addEventListener('click', (event) => {
+          if (
+            !navbarRight.contains(event.target) &&
+            !menuToggle.contains(event.target) &&
+            !document.querySelector('.hamburger-icon').contains(event.target)
+          ) {
+            closeMenu();
+          }
+        });
+
+        // Update profile picture source to use a placeholder
+        const profilePicture = document.querySelector('.profile-picture');
+        if (profilePicture) {
+          profilePicture.onerror = function () {
+            this.src =
+              'https://placehold.co/350x350/8A2BE2/FFFFFF?text=Profile';
+          };
+        }
+      });
+    </script>
+  </body>
+</html>
